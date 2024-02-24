@@ -1,9 +1,9 @@
 #Author: Stephen Duran
-#Propublica API usage file
+#Propublica API Class file.
 class ProPublicaData:
     def __init__(self, data):
         self.data = data
-
+        self.propublicaApiUrl="https://projects.propublica.org/nonprofits/api/v2/search.json"
 
     def get_ein(self,ein):
         if ein == [org["EIN"] for org in self.data["Organizations"]]:
