@@ -1,11 +1,12 @@
-from Flask import jsonify, request
-from .ProPublica import ProPublicaData
-from Backend.Flask.ChangeOrgApi import ChangeOrgApi
+from flask import Flask, request, jsonify
+from ChangeOrgApi import ChangeOrgApi
+from ProPublica import ProPublicaData
 app = Flask(__name__)
 
 # Create an instance of the API wrapper class
+apiKey=""
 ProPublica = ProPublicaData()
-ChangeOrg = ChangeOrgApi()
+ChangeOrg = ChangeOrgApi(apiKey)
 @app.route('/score', methods=['GET'])
 def get_organization_score():
     orgName = request.args.get('name')
