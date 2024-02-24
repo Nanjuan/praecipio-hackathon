@@ -9,7 +9,7 @@ export default async function Home() {
   
   return (
     <main>
-      <nav className="h-20 w-full bg-black"></nav>
+
       <section className="py-20 bg-blue-300">
         <Container>
           <TextField
