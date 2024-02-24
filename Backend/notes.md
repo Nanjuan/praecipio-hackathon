@@ -1,4 +1,5 @@
 ### Back End
+Devs: Stephen, Alexis
 - Python 3 
 - Flask
 - Google Firebase (https://firebase.google.com/products/functions)
@@ -26,6 +27,20 @@
 
 
 ## Nonprofit API tool
+- https://projects.propublica.org/nonprofits/api
+- https://docs.every.org/docs/endpoints/nonprofit-search
+
+# Data points needed 
+- URL
+- Name of CEO/Owner
+- Name of NPO
+- Years of Operations 
+- Rating 
+- Tax revenue per year
+- Assets amount per year 
+
+## Payment processing
+- Give Lively
 - https://projects.propublica.org/nonprofits/api
 - https://docs.every.org/docs/endpoints/nonprofit-search
 
