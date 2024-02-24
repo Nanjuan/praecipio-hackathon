@@ -1,9 +1,3 @@
-Technologies 
-
-Building a non-profit application that evaluates other applications and facilitates donations involves a comprehensive set of technologies. Your starting points cover essential aspects of front-end and back-end development. Let's expand on these and consider the back-end architecture and AI prompts you might use.
-
-Front End
-
 ## Technologies
 
 Building a non-profit application that evaluates other applications and facilitates donations involves a comprehensive set of technologies. Your starting points cover essential aspects of front-end and back-end development. Let's expand on these and consider the back-end architecture and AI prompts you might use.
