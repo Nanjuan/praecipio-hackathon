@@ -1,6 +1,6 @@
-from flask import Flask, jsonify, request
-from ..API.ProPublica import ProPublicaData
-from ChangeOrgApi import ChangeOrgApi
+from Flask import jsonify, request
+from .ProPublica import ProPublicaData
+from Backend.Flask.ChangeOrgApi import ChangeOrgApi
 app = Flask(__name__)
 
 # Create an instance of the API wrapper class
@@ -25,21 +25,21 @@ def get_organization_ein():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
 
-    return ChangeOrg.getEIN
+    return ChangeOrg.getEIN()
 
 @app.route('/website', methods=['GET'])
 def get_organization_website():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
 
-    return ChangeOrg.getWebsiteUrl
+    return ChangeOrg.getWebsiteUrl()
 
 @app.route('/ein', methods=['GET'])
 def get_organization_logo():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
 
-    return ChangeOrg.getLogoUrl
+    return ChangeOrg.getLogoUrl()
 
 @app.route('/location', methods=['GET'])
 def get_organization_location():
@@ -53,7 +53,7 @@ def get_organization_():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
 
-    return ChangeOrg.getCreatedDate
+    return ChangeOrg.getCreatedDate()
 
 
 
