@@ -1,6 +1,9 @@
 import { Inter } from "next/font/google";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { ThemeProvider, StyledEngineProvider } from "@mui/material/styles";
+import Layout from "../app/components/Navbar";
+import ButtonMain from "../app/components/Button";
+
 import theme from "./theme";
 
 import "./globals.css";
@@ -18,6 +21,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <AppRouterCacheProvider>
           <StyledEngineProvider injectFirst>
+            <Layout />
             <ThemeProvider theme={theme}>{children}</ThemeProvider>
           </StyledEngineProvider>
         </AppRouterCacheProvider>
