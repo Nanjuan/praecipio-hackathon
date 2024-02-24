@@ -49,3 +49,6 @@ For evaluating other applications and supporting donation functionalities, AI ca
 - Front End: Use React.js for the web interface, integrating with Firebase for real-time data handling.
 - Back End: Develop a Flask API deployed on Firebase Cloud Functions, interfacing with Firestore for data storage and Firebase Auth for user authentication.
 - AI Integration: Leverage Google Cloud AI services or other machine learning frameworks like TensorFlow or PyTorch for implementing the AI features.
+
+
+# Mr. Silver smells like booboo
