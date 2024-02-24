@@ -1,12 +1,23 @@
 #Author: Stephen Duran
 #Propublica API usage file
-import json
+class NonprofitOrganization:
+    def __init__(self, data):
+        self.data = data
 
-# some JSON:
-x =  '{ "name":"John", "age":30, "city":"New York"}'
 
-# parse x:
-y = json.loads(x)
+    def get_ein(self,ein):
+        if ein == [org["EIN"] for org in self.data["Organizations"]]:
+            return [org["EIN"] for org in self.data["Organizations"]]
+        else:
+            return "Not found"
+    def get_name(self,name):
+        if name == [org["Name"] for org in self.data["Organizations"]]:
+            return [org["Name"] for org in self.data["Organizations"]]
+        else:
+            return "Not found"
 
-# the result is a Python dictionary:
-print(y["age"]) 
+    def get_score(self,score):
+        if score == [org["Score"] for org in self.data["Organizations"]]:
+            return [org["Score"] for org in self.data["Organizations"]]
+        else:
+            return "Not found"
