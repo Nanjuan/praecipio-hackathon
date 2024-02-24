@@ -1,0 +1,19 @@
+{
+    "user": "John Doe",
+    "email": "john.doe@example.com",
+    "donations": [
+      {
+        "organization": "Charity A",
+        "amount": 100
+      },
+      {
+        "organization": "Charity B",
+        "amount": 50
+      },
+      {
+        "organization": "Charity C",
+        "amount": 200
+      }
+    ]
+  }
+  
