@@ -4,6 +4,7 @@ Building a non-profit application that evaluates other applications and facilita
 
 ### Front End
 - HTML/CSS
+    - SASS
 - React.js
 
 - HTML/CSS: These are fundamental for building web interfaces. Consider using a preprocessor like SASS for CSS to manage styles more efficiently.
