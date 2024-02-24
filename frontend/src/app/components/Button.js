@@ -1,7 +1,7 @@
 import React from 'react';
-const ButtonMain = () => {
+const ButtonMain = ({children}) => {
     return (
-        <button className="w-full h-40 flex items-center justify-center cursor-pointer">
+        <button className="h-40 flex items-center justify-center cursor-pointer">
             <div
                 className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
             >
@@ -47,7 +47,7 @@ const ButtonMain = () => {
                 <span
                     className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200"
                 >
-                    Button
+                    {children}
                 </span>
             </div>
         </button>
