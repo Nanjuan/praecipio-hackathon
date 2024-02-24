@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request
-from ProPublica import ProPublicaData  # Assuming you have a separate class for API calls
+from ..API.ProPublica import ProPublicaData
 from ChangeOrgApi import ChangeOrgApi
 app = Flask(__name__)
 
@@ -52,7 +52,7 @@ def get_organization_location():
 def get_organization_():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
-    
+
     return ChangeOrg.getCreatedDate
 
 
