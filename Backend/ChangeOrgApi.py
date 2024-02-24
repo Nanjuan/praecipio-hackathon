@@ -1,4 +1,5 @@
 import requests
+import datetime
 
 class ChangeOrgApi:
     def __init__(self, api_key):
@@ -10,11 +11,21 @@ class ChangeOrgApi:
         self.ein=None
         self.logoURL=None
         self.websiteUrl=None
+        self.description=None
+        self.createdDate=None
         #https://partners.every.org/v0.2/search/364234906?apiKey= this one has the image url and we search using the ein from the other api
 
+    #*************MUST CALL THIS FUNCTION FIRST AFTER INITIALIZATION*************
     def setupOrgName(self,organizationName):
         self.getChangeOrgData(organizationName)
         self.getChangeOrgPartnersData()
+    
+    def formatDate(self, date):
+        try:
+            formatted_date = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%Y-%m-%d")
+            return formatted_date
+        except ValueError:
+            return None
 
     def getChangeOrgData(self,organizationName):
         try:
@@ -61,8 +72,20 @@ class ChangeOrgApi:
         except KeyError:
             return None
     
+    def getLocation(self):
+        try:
+            self.websiteUrl=self.everyOrgPartnersResponse["nonprofits"][0]["location"]
+            return self.websiteUrl
+        except KeyError:
+            return None
     
-
+    def getCreatedDate(self):
+        try:
+            self.createdDate=self.formatDate(self.everyOrgResponse["data"]["nonprofit"]["createdAt"])
+            return self.createdDate
+        except KeyError:
+            return None
+        
     def getFormattedOrgName(self, orgName):
         lowercaseString = orgName.lower()
         formattedName = lowercaseString.replace(" ", "-")
