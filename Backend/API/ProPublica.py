@@ -27,7 +27,7 @@ class ProPublicaData:
         
         try:
             apiUrl=self.propublicaApiUrl
-            if organizationName[0] == "":
+            if organizationName[0] == '"':
                 organizationName = self.format_OrgName(organizationName)
             response = requests.get(apiUrl, params={"q": organizationName})
             if response.status_code == 200:
