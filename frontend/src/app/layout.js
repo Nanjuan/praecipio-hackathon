@@ -15,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body id="__next" className={inter.className}>
         <AppRouterCacheProvider>
           <StyledEngineProvider injectFirst>
             <ThemeProvider theme={theme}>{children}</ThemeProvider>
