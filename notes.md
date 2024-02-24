@@ -4,6 +4,7 @@ Building a non-profit application that evaluates other applications and facilita
 
 ### Front End
 - HTML/CSS
+    - SASS
 - React.js
 
 - HTML/CSS: These are fundamental for building web interfaces. Consider using a preprocessor like SASS for CSS to manage styles more efficiently.
@@ -48,3 +49,6 @@ For evaluating other applications and supporting donation functionalities, AI ca
 - Front End: Use React.js for the web interface, integrating with Firebase for real-time data handling.
 - Back End: Develop a Flask API deployed on Firebase Cloud Functions, interfacing with Firestore for data storage and Firebase Auth for user authentication.
 - AI Integration: Leverage Google Cloud AI services or other machine learning frameworks like TensorFlow or PyTorch for implementing the AI features.
+
+
+# Mr. Silver smells like booboo
