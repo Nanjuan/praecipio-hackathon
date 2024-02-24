@@ -23,6 +23,7 @@ class ChangeOrgApi:
     def formatDate(self, date):
         try:
             formatted_date = datetime.datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%Y-%m-%d")
+
             return formatted_date
         except ValueError:
             return None
@@ -71,7 +72,7 @@ class ChangeOrgApi:
             return self.websiteUrl
         except KeyError:
             return None
-    
+
     # def getLocation(self):
     #     try:
     #         self.=self.everyOrgPartnersResponse["nonprofits"][0]["location"]
