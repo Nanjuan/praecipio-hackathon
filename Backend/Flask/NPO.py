@@ -9,13 +9,10 @@ ChangeOrg = ChangeOrgApi()
 @app.route('/score', methods=['GET'])
 def get_organization_score():
     orgName = request.args.get('name')
+    ProPublica.getProPublicaOrgData(orgName)
+    orgScore = ProPublica.getScore()
 
-    # Call a method from the API wrapper class to fetch organization data
-    organizationScore = ProPublica.get_score(orgName)
-
-    # Extract specific fields from the organization data
-
-    return organizationScore
+    return orgScore
 
 @app.route('/name', methods=['GET'])
 def get_organization_data():
@@ -41,8 +38,25 @@ def get_organization_website():
 def get_organization_logo():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
-    
-    
+
     return ChangeOrg.getLogoUrl
+
+@app.route('/location', methods=['GET'])
+def get_organization_location():
+    orgName = request.args.get('name')
+    ChangeOrg.setupOrgName(orgName)
+
+    return ChangeOrg.getLocation
+
+@app.route('/creationDate', methods=['GET'])
+def get_organization_():
+    orgName = request.args.get('name')
+    ChangeOrg.setupOrgName(orgName)
+    
+    return ChangeOrg.getCreatedDate
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -3,11 +3,10 @@
 import requests
 
 class ProPublicaData:
-    def __init__(self, data, name):
-        self.data = data
-        self.name = name 
+    def __init__(self):
         self.propublicaApiUrl="https://projects.propublica.org/nonprofits/api/v2/search.json"
-
+        self.data = None
+        self.score = None
     def format_OrgName(OrgName):
         # Remove ""
         OrgName = OrgName[1:-1]
@@ -17,9 +16,9 @@ class ProPublicaData:
         OrgName = "%22" + OrgName + "%22"
         return OrgName
 
-    def get_score(self,name):
-        if name == [org["Name"] for org in self.data["Organizations"]]:
-            return [org["Score"] for org in self.data["Organizations"]]
+    def get_score(self):
+        if self.score != None:
+            return self.score
         else:
             return "Score Not found"
         
@@ -27,10 +26,15 @@ class ProPublicaData:
         
         try:
             apiUrl=self.propublicaApiUrl
+            #If the name is in quotations
             if organizationName[0] == '"':
                 organizationName = self.format_OrgName(organizationName)
+                
             response = requests.get(apiUrl, params={"q": organizationName})
+
             if response.status_code == 200:
+                self.data = response 
+                self.score = [org["Score"] for org in self.data["Organizations"]]
                 return response.json()
             else:
                 return {"error": f"Failed to fetch data. Status code: {response.status_code}"}
