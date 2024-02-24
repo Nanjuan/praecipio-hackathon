@@ -22,7 +22,7 @@ class ChangeOrgApi:
     
     def formatDate(self, date):
         try:
-            formatted_date = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%Y-%m-%d")
+            formatted_date = datetime.datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%fZ").strftime("%Y-%m-%d")
             return formatted_date
         except ValueError:
             return None
@@ -30,9 +30,9 @@ class ChangeOrgApi:
     def getChangeOrgData(self,organizationName):
         try:
             apiUrl=self.changeOrgApiUrl+"/"+self.getFormattedOrgName(organizationName)
-            response = requests.get(apiUrl, params={"api_key": self.api_key})
+            response = requests.get(apiUrl, params={"apiKey": self.api_key})
             if response.status_code == 200:
-                self.everyOrgResponse = response.json
+                self.everyOrgResponse = response.json()
                 return self.everyOrgResponse
             else:
                 return {"error": f"Failed to fetch data. Status code: {response.status_code}"}
@@ -42,9 +42,9 @@ class ChangeOrgApi:
     def getChangeOrgPartnersData(self):
         try:
             apiUrl=self.changeOrgPartnersUrl+"/"+self.getEIN()
-            response = requests.get(apiUrl, params={"api_key": self.api_key})
+            response = requests.get(apiUrl, params={"apiKey": self.api_key})
             if response.status_code == 200:
-                self.everyOrgPartnersResponse = response.json
+                self.everyOrgPartnersResponse = response.json()
                 return self.everyOrgPartnersResponse
             else:
                 return {"error": f"Failed to fetch data. Status code: {response.status_code}"}
@@ -53,7 +53,7 @@ class ChangeOrgApi:
 
     def getEIN(self):
         try:
-            self.ein=self.getChangeOrgData["data"]["nonprofit"]["ein"]
+            self.ein=self.everyOrgResponse["data"]["nonprofit"]["ein"]
             return self.ein
         except KeyError:
             return None
@@ -72,12 +72,12 @@ class ChangeOrgApi:
         except KeyError:
             return None
     
-    def getLocation(self):
-        try:
-            self.websiteUrl=self.everyOrgPartnersResponse["nonprofits"][0]["location"]
-            return self.websiteUrl
-        except KeyError:
-            return None
+    # def getLocation(self):
+    #     try:
+    #         self.=self.everyOrgPartnersResponse["nonprofits"][0]["location"]
+    #         return self.websiteUrl
+    #     except KeyError:
+    #         return None
     
     def getCreatedDate(self):
         try:
@@ -91,3 +91,17 @@ class ChangeOrgApi:
         formattedName = lowercaseString.replace(" ", "-")
         return formattedName
 
+
+#test code
+# if __name__=="__main__":
+#     obj=ChangeOrgApi("pk_live_3b70017fd6befffd9a3fc19def9618f9")
+#     obj.setupOrgName("Kids In Danger")
+#     ein=obj.getEIN()
+#     logo=obj.getLogoUrl()
+#     date=obj.getCreatedDate()
+#     website=obj.getWebsiteUrl()
+#     print(ein)
+#     print(logo)
+#     print(date)
+#     print(website)
+    
