@@ -1,8 +1,15 @@
 ### Front End
 Devs: Robbie, Ryan
 - HTML/CSS
-    - SASS
+    - Tailwind
+    
+Frameworks
 - React.js
+- Next.js
+- Javascript
+
+- UI framework 
+    - material UI
 
 ## Color Pallete
 - There is a image and the code is below 
