@@ -3,10 +3,22 @@
 Building a non-profit application that evaluates other applications and facilitates donations involves a comprehensive set of technologies. Your starting points cover essential aspects of front-end and back-end development. Let's expand on these and consider the back-end architecture and AI prompts you might use.
 
 ### Front End
+- HTML/CSS
+- React.js
+
 - HTML/CSS: These are fundamental for building web interfaces. Consider using a preprocessor like SASS for CSS to manage styles more efficiently.
+
 - React Native: While React Native is primarily used for mobile app development, if you're aiming for a web application, you might consider using React.js instead. React.js will allow you to build a dynamic, single-page application (SPA) that can interact seamlessly with your back end. For a project that includes both web and mobile platforms, React Native could be complemented with React.js for web development.
 
 ### Back End
+- Python 3 
+- Flask
+- Google Firebase
+    - FireStore
+    - Firebase Auth
+    - Firebase Hosting
+    - Cloud Funtions 
+
 - Python 3: A versatile programming language that's popular for web and AI development.
 - Flask: A lightweight WSGI web application framework in Python, suitable for setting up a RESTful API for your application.
 - Google Firebase: Offers a wide range of services including real-time databases, authentication, and hosting. For your needs:
@@ -16,6 +28,10 @@ Building a non-profit application that evaluates other applications and facilita
     - Cloud Functions: To run back-end code in response to HTTPS requests or Firebase triggers.
 
 ### Back End Architecture (Servers)
+- Firebase Cloud
+- Docker
+- (future CI/CD)
+
 For the server architecture supporting Flask and Firebase, consider the following:
 - Serverless Architecture: Given your use of Firebase, a serverless architecture could be highly beneficial. This model allows you to focus on your application code rather than managing servers. Firebase Cloud Functions can execute your Flask app in response to HTTP requests.
 - Docker: Use Docker containers to encapsulate your Flask application and any other dependencies into a single package. This simplifies deployment and ensures consistency across development, testing, and production environments.
