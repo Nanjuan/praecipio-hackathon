@@ -17,16 +17,18 @@ export default async function Home() {
             variant="filled"
             fullWidth
             className="bg-white"
-            endAdornment={
+            InputProps={{
+               endAdornment: 
               <InputAdornment position="end">
                 <IconButton
                   ariaLabel="search for NPOs"
-                  edge="end"
+                  // edge="end"
                 >
                   <SearchIcon />
                 </IconButton>
               </InputAdornment>
-            }
+            }}
+           
           />
         </Container>
       </section>
