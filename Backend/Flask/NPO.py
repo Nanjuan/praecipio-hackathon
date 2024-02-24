@@ -4,7 +4,7 @@ from ProPublica import ProPublicaData
 app = Flask(__name__)
 
 # Create an instance of the API wrapper class
-apiKey=""
+apiKey="pk_live_3b70017fd6befffd9a3fc19def9618f9"
 ProPublica = ProPublicaData()
 ChangeOrg = ChangeOrgApi(apiKey)
 @app.route('/score', methods=['GET'])
@@ -35,7 +35,7 @@ def get_organization_website():
 
     return ChangeOrg.getWebsiteUrl()
 
-@app.route('/ein', methods=['GET'])
+@app.route('/logo', methods=['GET'])
 def get_organization_logo():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
