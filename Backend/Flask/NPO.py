@@ -56,6 +56,12 @@ def get_organization_():
 
     return ChangeOrg.getCreatedDate()
 
+@app.route('/data', methods=['GET'])
+def get_organization_():
+    orgName = request.args.get('name')
+    ChangeOrg.setupOrgName(orgName)
+
+    return ChangeOrg.getData()
 
 
 

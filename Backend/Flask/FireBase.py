@@ -1,3 +1,15 @@
+
+
+
+
+
+
+
+
+
+
+# Boilerplate code to work on for multiple users.
+'''
 from flask import Flask, request, jsonify
 import firebase_admin
 from firebase_admin import credentials, firestore, auth
@@ -32,3 +44,4 @@ def save_donations():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    '''
