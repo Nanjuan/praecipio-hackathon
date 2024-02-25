@@ -91,6 +91,9 @@ class ChangeOrgApi:
         lowercaseString = orgName.lower()
         formattedName = lowercaseString.replace(" ", "-")
         return formattedName
+    
+    def getData(self):
+        return self.everyOrgResponse
 
 
 #test code
