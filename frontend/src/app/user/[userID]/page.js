@@ -10,7 +10,11 @@ const getUser = async (userID) => {
     // if (!response.ok) {
     //     throw new Error('Failed to fetch user');
     // }
-    return {userID}
+    return {
+        userId: "12234",
+        name: "Robbie",
+        email: "el_presidente@gmail.com"
+    }
 };
 
 export default async function ProfilePage({ params }) {
@@ -23,26 +27,7 @@ export default async function ProfilePage({ params }) {
             <Head>
                 <title>User Profile - {user.userID}</title>
             </Head>
-            <UserToolbar />
+            <UserToolbar user={user}/>
         </div>
     );
 };
-
-//export default ProfilePage;
-
-// export async function getServerSideProps({ params }) {
-//     try {
-//         const user = await getUser(params.userID);
-//         return {
-//             props: {
-//                 user,
-//             },
-//         };
-//     } catch (error) {
-//         return {
-//             notFound: true,
-//         };
-//     }
-// }
-
-
