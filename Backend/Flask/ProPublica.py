@@ -12,8 +12,11 @@ class ProPublicaData:
         OrgName = OrgName.replace('"', "%22")
         # Replace spaces with %20
         OrgName = OrgName.replace(" ", "%20")
-        # Replace spaces with %2B
+        # Replace + with %2B
         OrgName = OrgName.replace("+", "%2B")
+        # Replace [] with %5
+        OrgName = OrgName.replace("[", "%2B")
+        OrgName = OrgName.replace("]", "%2B")
 
         return OrgName
 
