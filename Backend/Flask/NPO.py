@@ -60,8 +60,9 @@ def get_creationDate_():
 def get_organization():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
+    ProPublica.getProPublicaOrgData(orgName)
     data = ""+ChangeOrg.getFormattedOrgName()+"\n"+ChangeOrg.getCreatedDate()+"\n"+\
-            ChangeOrg.getEIN()+"\n"+ChangeOrg.getWebsiteUrl()+"\n"+ChangeOrg.getLogoUrl()
+            ChangeOrg.getEIN()+"\n"+ProPublica.getProPublicaOrgData(orgName)+"\n"+ChangeOrg.getWebsiteUrl()+"\n"+ChangeOrg.getLogoUrl()
     return data
 
 

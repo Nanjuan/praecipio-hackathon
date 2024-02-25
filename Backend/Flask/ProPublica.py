@@ -7,7 +7,7 @@ class ProPublicaData:
         self.propublicaApiUrl="https://projects.propublica.org/nonprofits/api/v2/search.json"
         self.data = None
         self.score = None
-    def format_OrgName(OrgName):
+    def formatOrgName(OrgName):
         # Remove ""
         OrgName = OrgName[1:-1]
         # Replace spaces with %20
@@ -28,7 +28,7 @@ class ProPublicaData:
             apiUrl=self.propublicaApiUrl
             #If the name is in quotations
             if organizationName[0] == '"':
-                organizationName = self.format_OrgName(organizationName)
+                organizationName = self.formatOrgName(organizationName)
                 
             response = requests.get(apiUrl, params={"q": organizationName})
 
