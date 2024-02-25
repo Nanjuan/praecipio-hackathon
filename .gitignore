@@ -1,2 +1,8 @@
 Backend/Flask/__pycache__/ChangeOrgApi.cpython-311.pyc
 Backend/Flask/__pycache__/ProPublica.cpython-311.pyc
+/praecipio-hackathon/frontend/.next
+/praecipio-hackathon/frontend/node_modules
+/praecipio-hackathon/frontend/.next/cache
+/praecipio-hackathon/frontend/.next/types
+frontend/
+.gitignore
