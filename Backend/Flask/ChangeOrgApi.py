@@ -13,6 +13,8 @@ class ChangeOrgApi:
         self.websiteUrl=None
         self.description=None
         self.createdDate=None
+        self.name=None
+        self.location=None
         #https://partners.every.org/v0.2/search/364234906?apiKey= this one has the image url and we search using the ein from the other api
 
     #*************MUST CALL THIS FUNCTION FIRST AFTER INITIALIZATION*************
@@ -59,6 +61,13 @@ class ChangeOrgApi:
         except KeyError:
             return None
         
+    def getName(self):
+        try:
+            self.name=self.everyOrgResponse["data"]["nonprofit"]["name"]
+            return self.name
+        except KeyError:
+            return None
+        
     def getLogoUrl(self):
         try:
             self.logoURL=self.everyOrgPartnersResponse["nonprofits"][0]["logoUrl"]
@@ -73,12 +82,12 @@ class ChangeOrgApi:
         except KeyError:
             return None
 
-    # def getLocation(self):
-    #     try:
-    #         self.=self.everyOrgPartnersResponse["nonprofits"][0]["location"]
-    #         return self.websiteUrl
-    #     except KeyError:
-    #         return None
+    def getLocation(self):
+        try:
+            self.location=self.everyOrgPartnersResponse["nonprofits"][0]["location"]
+            return self.location
+        except KeyError:
+            return None
     
     def getCreatedDate(self):
         try:
@@ -94,6 +103,15 @@ class ChangeOrgApi:
     
     def getData(self):
         return self.everyOrgResponse
+    
+    def clear(self):
+        self.everyOrgResponse = None
+        self.everyOrgPartnersResponse = None
+        self.ein=None
+        self.logoURL=None
+        self.websiteUrl=None
+        self.description=None
+        self.createdDate=None
 
 
 #test code

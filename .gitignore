@@ -4,9 +4,9 @@ Backend/Flask/venv
 # dependencies
 frontend/node_modules
 frontend/.pnp
-frontend.pnp.js
-frontend.yarn/install-state.gz
-frontendyarn.lock
+frontend/.pnp.js
+frontend/.yarn/install-state.gz
+frontend/yarn.lock
 
 # testing
 frontend/coverage
@@ -19,20 +19,20 @@ frontend/out/
 frontend/build
 
 # misc
-frontend.DS_Store
-frontend*.pem
+frontend/.DS_Store
+frontend/*.pem
 
 # debug
-frontendnpm-debug.log*
-frontendyarn-debug.log*
-frontendyarn-error.log*
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
 
 # local env files
-frontend.env*.local
+frontend/.env*.local
 
 # vercel
-frontend.vercel
+frontend/.vercel
 
 # typescript
-frontend*.tsbuildinfo
-frontendnext-env.d.ts
+frontend/*.tsbuildinfo
+frontend/next-env.d.ts
