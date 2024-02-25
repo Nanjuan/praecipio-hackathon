@@ -9,11 +9,12 @@ class ProPublicaData:
         self.score = None
     def formatOrgName(OrgName):
         # Remove ""
-        OrgName = OrgName[1:-1]
+        OrgName = OrgName.replace('"', "%22")
         # Replace spaces with %20
         OrgName = OrgName.replace(" ", "%20")
-        # Surround the string with %22 at the beginning and end
-        OrgName = "%22" + OrgName + "%22"
+        # Replace spaces with %2B
+        OrgName = OrgName.replace("+", "%2B")
+
         return OrgName
 
     def getScore(self):
