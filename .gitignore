@@ -1,0 +1,39 @@
+Backend/Flask/__pycache__/ChangeOrgApi.cpython-311.pyc
+Backend/Flask/__pycache__/ProPublica.cpython-311.pyc
+
+
+# dependencies
+frontend/node_modules
+frontend/.pnp
+frontend.pnp.js
+frontend.yarn/install-state.gz
+frontendyarn.lock
+
+# testing
+frontend/coverage
+
+# next.js
+frontend/.next/
+frontend/out/
+
+# production
+frontend/build
+
+# misc
+frontend.DS_Store
+frontend*.pem
+
+# debug
+frontendnpm-debug.log*
+frontendyarn-debug.log*
+frontendyarn-error.log*
+
+# local env files
+frontend.env*.local
+
+# vercel
+frontend.vercel
+
+# typescript
+frontend*.tsbuildinfo
+frontendnext-env.d.ts
