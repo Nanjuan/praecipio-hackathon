@@ -87,9 +87,10 @@ def get_allData():
     creationDate=ChangeOrg.getCreatedDate()
     location=ChangeOrg.getLocation()
     website=ChangeOrg.getWebsiteUrl()
-
     ein=ChangeOrg.getEIN()
+    description=ChangeOrg.getDescription()
     score=ProPublica.getScore()
+    raw=ChangeOrg.getRaw()
     ChangeOrg.clear()
     ProPublica.clear()
     data = {
@@ -99,6 +100,8 @@ def get_allData():
     "website": website,
     "creationDate": creationDate,
     "location": location,
+    "description": description,
+    "raw": raw,
     "score": score
 }
     json_data = json.dumps(data)
