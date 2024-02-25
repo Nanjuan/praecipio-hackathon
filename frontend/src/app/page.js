@@ -9,16 +9,15 @@ export default async function Home() {
   
   return (
     <main>
-
-      <section className="py-20 bg-blue-300">
+      <section className="py-16 bg-backgroundColor">
         <Container>
           <TextField
             label="Search"
-            variant="filled"
+            variant="outlined"
             fullWidth
-            className="bg-white"
+            className="shadow-xl border border-[#cdd1e0] bg-secondaryColor "
             InputProps={{
-               endAdornment: 
+              endAdornment: 
               <InputAdornment position="end">
                 <IconButton
                   ariaLabel="search for NPOs"
@@ -28,11 +27,10 @@ export default async function Home() {
                 </IconButton>
               </InputAdornment>
             }}
-           
           />
         </Container>
       </section>
-      <section className="py-10">
+      <section className="py-10 bg-backgroundColor">
         <Container>
           <NpoList npos={npos} />
         </Container>
