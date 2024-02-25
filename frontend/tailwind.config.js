@@ -9,11 +9,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "primaryColor":"#C8D0FF",
-        "secondaryColor":"#3C7A89",
-        "tertiaryColor":"#A3B18A",
-        "assentColor":"#FF5A5F",
-        "backgroundColor":"#2B2D42",
+        "primaryColor":"#434371",
+        "secondaryColor":"#F0F4EF",
+        "tertiaryColor":"#022636",
+        "assentColor":"#145369",
+        "assentColorDarker":"#104254",
+        "backgroundColor":"#FFFFFF",
+        "whiteColor":"#FFFFFF",
+        "grayColor":"#929EAD",
+        "textColor":"#000000",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
