@@ -8,9 +8,6 @@ const getUser = async (userID) => {
         userId: "12234",
         name: "Robbie",
         email: "el_presidente@gmail.com"
-        const npoList = [
-            ""
-        ]
     }
 };
 
