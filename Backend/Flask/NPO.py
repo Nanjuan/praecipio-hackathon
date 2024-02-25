@@ -76,13 +76,13 @@ def get_creationDate_():
     return name
 
 @app.route('/data', methods=['GET'])
-def get_organization():
+def getOrganization():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
     ProPublica.getProPublicaOrgData(orgName)
     data = {
-    "name": ChangeOrg.getName(),
-    "score": ProPublica.getScore(),
+    "Name": ChangeOrg.getName(),
+    "Score": ProPublica.getScore(),
     "EIN": ChangeOrg.getEIN(),
     "Web-URL": ChangeOrg.getWebsiteUrl(),
     "Logo-URL": ChangeOrg.getLogoUrl(),
@@ -94,7 +94,19 @@ def get_organization():
     ProPublica.clear()
     response = jsonify(data)
     return response 
-
+@app.route('/changeOrg', methods=['GET'])
+def getChangeOrg():
+    orgName = request.args.get('name')
+    ChangeOrg.setupOrgName(orgName)
+    data = ChangeOrg.getChangeOrgData
+    ChangeOrg.clear()
+    return data
+@app.route('/proPublica', methods=['GET'])
+def getProPublcia():
+    orgName = request.args.get('name')
+    data = ProPublica.getProPublicaOrgData(orgName)
+    ProPublica.clear()
+    return data
 
 if __name__ == '__main__':
     app.run(debug=True)
