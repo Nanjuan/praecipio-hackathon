@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from ChangeOrgApi import ChangeOrgApi
 from ProPublica import ProPublicaData
+import json
 app = Flask(__name__)
 
 # Create an instance of the API wrapper class
@@ -85,7 +86,34 @@ def get_organization():
     ProPublica.clear()
     return name
 
+@app.route('/getalldata', methods=['GET'])
+def get_allData():
 
+    orgName = request.args.get('name')
+    ChangeOrg.setupOrgName(orgName)
+
+    name=ChangeOrg.getName()
+    logo=ChangeOrg.getLogoUrl()
+    creationDate=ChangeOrg.getCreatedDate()
+    location=ChangeOrg.getLocation()
+    website=ChangeOrg.getWebsiteUrl()
+
+    ein=ChangeOrg.getEIN()
+    score=ProPublica.getScore()
+    ChangeOrg.clear()
+    ProPublica.clear()
+
+    data = {
+    "ein": ein,
+    "name": name,
+    "logo": logo,
+    "website": website,
+    "creationDate": creationDate,
+    "location": location,
+    "location": score
+}
+    json_data = json.dumps(data)
+    return json_data
 
 if __name__ == '__main__':
     app.run(debug=True)
