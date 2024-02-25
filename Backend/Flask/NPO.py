@@ -103,6 +103,18 @@ def get_allData():
 }
     json_data = json.dumps(data)
     return json_data
-
+@app.route('/changeOrg', methods=['GET'])
+def getChangeOrg():
+    orgName = request.args.get('name')
+    ChangeOrg.setupOrgName(orgName)
+    data = ChangeOrg.getChangeOrgData()
+    ChangeOrg.clear()
+    return data
+@app.route('/proPublica', methods=['GET'])
+def getProPublica():
+    orgName = request.args.get('name')
+    data = ProPublica.getProPublicaOrgData(orgName)
+    ProPublica.clear()
+    return data
 if __name__ == '__main__':
     app.run(debug=True)
