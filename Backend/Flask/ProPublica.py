@@ -7,16 +7,20 @@ class ProPublicaData:
         self.propublicaApiUrl="https://projects.propublica.org/nonprofits/api/v2/search.json"
         self.data = None
         self.score = None
-    def format_OrgName(OrgName):
+    def formatOrgName(OrgName):
         # Remove ""
-        OrgName = OrgName[1:-1]
+        OrgName = OrgName.replace('"', "%22")
         # Replace spaces with %20
         OrgName = OrgName.replace(" ", "%20")
-        # Surround the string with %22 at the beginning and end
-        OrgName = "%22" + OrgName + "%22"
+        # Replace + with %2B
+        OrgName = OrgName.replace("+", "%2B")
+        # Replace [] with %5
+        OrgName = OrgName.replace("[", "%2B")
+        OrgName = OrgName.replace("]", "%2B")
+
         return OrgName
 
-    def get_score(self):
+    def getScore(self):
         if self.score != None:
             return self.score
         else:
@@ -26,9 +30,7 @@ class ProPublicaData:
         
         try:
             apiUrl=self.propublicaApiUrl
-            #If the name is in quotations
-            if organizationName[0] == '"':
-                organizationName = self.format_OrgName(organizationName)
+            organizationName = self.formatOrgName(organizationName)
                 
             response = requests.get(apiUrl, params={"q": organizationName})
 
