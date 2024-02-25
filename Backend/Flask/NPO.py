@@ -81,7 +81,7 @@ def get_allData():
 
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
-
+    ProPublica.getProPublicaOrgData(orgName)
     name=ChangeOrg.getName()
     logo=ChangeOrg.getLogoUrl()
     creationDate=ChangeOrg.getCreatedDate()
@@ -99,7 +99,7 @@ def get_allData():
     "website": website,
     "creationDate": creationDate,
     "location": location,
-    "location": score
+    "score": score
 }
     json_data = json.dumps(data)
     return json_data
