@@ -16,7 +16,7 @@ class ProPublicaData:
         OrgName = "%22" + OrgName + "%22"
         return OrgName
 
-    def get_score(self):
+    def getScore(self):
         if self.score != None:
             return self.score
         else:
