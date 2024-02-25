@@ -11,57 +11,79 @@ ChangeOrg = ChangeOrgApi(apiKey)
 def get_organization_score():
     orgName = request.args.get('name')
     ProPublica.getProPublicaOrgData(orgName)
-    orgScore = ProPublica.getScore()
-
+    orgScore = ProPublica.get_score()
+    ProPublica.clear()
+    ChangeOrg.clear()
     return orgScore
 
 @app.route('/name', methods=['GET'])
 def get_organization_data():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
-
+    name=ChangeOrg.getName()
+    ChangeOrg.clear()
+    ProPublica.clear()
+    return name
 
 @app.route('/ein', methods=['GET'])
 def get_organization_ein():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
 
-    return ChangeOrg.getEIN()
+    var=ChangeOrg.getEIN()
+    ChangeOrg.clear()
+    ProPublica.clear()
+    return var
 
 @app.route('/website', methods=['GET'])
 def get_organization_website():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
 
-    return ChangeOrg.getWebsiteUrl()
+    name=ChangeOrg.getWebsiteUrl()
+    ChangeOrg.clear()
+    ProPublica.clear()
+    return name
 
 @app.route('/logo', methods=['GET'])
 def get_organization_logo():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
 
-    return ChangeOrg.getLogoUrl()
+    name=ChangeOrg.getLogoUrl()
+    ChangeOrg.clear()
+    ProPublica.clear()
+    return name
 
 @app.route('/location', methods=['GET'])
 def get_organization_location():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
 
-    return ChangeOrg.getLocation
+    name=ChangeOrg.getLocation()
+    ChangeOrg.clear()
+    ProPublica.clear()
+    return name
 
 @app.route('/creationDate', methods=['GET'])
 def get_creationDate_():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
 
-    return ChangeOrg.getCreatedDate()
+    name=ChangeOrg.getCreatedDate()
+    ChangeOrg.clear()
+    ProPublica.clear()
+    return name
 
 @app.route('/data', methods=['GET'])
 def get_organization_():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
 
-    return ChangeOrg.getData()
+    name=ChangeOrg.getData()
+    ChangeOrg.clear()
+    ProPublica.clear()
+    return name
 
 
 

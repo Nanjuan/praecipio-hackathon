@@ -41,3 +41,7 @@ class ProPublicaData:
         except Exception as e:
             return {"error": f"An error occurred: {str(e)}"}
         
+    def clear(self):
+        self.data=None
+        self.score=None
+        
