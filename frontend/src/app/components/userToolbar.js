@@ -24,7 +24,7 @@ export default async function UserProfile({user}) {
                                     Organizations
                                 </Typography>
                                 <Typography>
-                                    Total Donated: $1500
+                                    Total Donated: $1600
                                 </Typography>
                             </div>
                             <Accordion className="justify-between items-center rounded-x1 shadow-[10px_10px_15px_0]-assentColor border border-[#cdd1e0] hover:scale-105 transition-transform duration-500 ease-in-out bg-secondaryColor">
