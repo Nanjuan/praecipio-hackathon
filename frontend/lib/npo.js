@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getNpo = async (id) => {
     try {
-        const { data: { data } } = await axios.get(`${process.env.API_URL}/data`, {
+        const { data } = await axios.get(`${process.env.API_URL}/data`, {
             params: {
                 name: id
             }
