@@ -12,7 +12,7 @@ ChangeOrg = ChangeOrgApi(apiKey)
 def get_organization_score():
     orgName = request.args.get('name')
     ProPublica.getProPublicaOrgData(orgName)
-    orgScore = ProPublica.get_score()
+    orgScore = ProPublica.getScore()
     ProPublica.clear()
     ChangeOrg.clear()
     return orgScore
@@ -77,16 +77,6 @@ def get_creationDate_():
     return name
 
 @app.route('/data', methods=['GET'])
-def get_organization():
-    orgName = request.args.get('name')
-    ChangeOrg.setupOrgName(orgName)
-
-    name=ChangeOrg.getData()
-    ChangeOrg.clear()
-    ProPublica.clear()
-    return name
-
-@app.route('/getalldata', methods=['GET'])
 def get_allData():
 
     orgName = request.args.get('name')
@@ -102,7 +92,6 @@ def get_allData():
     score=ProPublica.getScore()
     ChangeOrg.clear()
     ProPublica.clear()
-
     data = {
     "ein": ein,
     "name": name,
