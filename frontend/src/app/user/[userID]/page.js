@@ -7,7 +7,7 @@ const getUser = async (userID) => {
     return {
         userId: "12234",
         name: "Robbie",
-        email: "el_presidente@gmail.com"
+        email: "Robbie@Praecipio.com"
     }
 };
 

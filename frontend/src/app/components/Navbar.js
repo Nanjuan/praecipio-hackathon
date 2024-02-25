@@ -19,8 +19,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Link from 'next/link'
 
-const pages = ['Home', 'Non Profit Organizations', 'Profile'];
-const settings = ['Profile', 'Dashboard', 'Logout'];
+const pages = ['Home', 'Profile'];
+const settings = ['Profile', 'Logout'];
 const links = ['/', '/non-profit-organizations', '/account'];
 
 function ResponsiveAppBar() {

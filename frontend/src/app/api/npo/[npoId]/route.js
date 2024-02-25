@@ -9,6 +9,6 @@ export async function GET(req, res) {
       taxRevenuePerYear: 500000,
       assetsAmountPerYear: 2000000,
       aiSummary:
-        "NPO Example has been making significant impacts in community development for over 5 years, with strong leadership under CEO Jane Smith.",
+        "NPO nestor Example has been making significant impacts in community development for over 5 years, with strong leadership under CEO Jane Smith.",
     });
 }
