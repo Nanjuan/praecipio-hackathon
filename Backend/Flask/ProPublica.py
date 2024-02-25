@@ -7,7 +7,7 @@ class ProPublicaData:
         self.propublicaApiUrl="https://projects.propublica.org/nonprofits/api/v2/search.json"
         self.data = None
         self.score = None
-    def formatOrgName(OrgName):
+    def formatOrgName(self,OrgName):
         # Remove ""
         OrgName = OrgName.replace('"', "%22")
         # Replace spaces with %20
@@ -22,7 +22,7 @@ class ProPublicaData:
 
     def getScore(self):
         if self.score != None:
-            return self.score
+            return self.score[0]
         else:
             return "Score Not found"
         
@@ -30,13 +30,13 @@ class ProPublicaData:
         
         try:
             apiUrl=self.propublicaApiUrl
-            organizationName = self.formatOrgName(organizationName)
+            #organizationName = self.formatOrgName(organizationName)
                 
             response = requests.get(apiUrl, params={"q": organizationName})
 
             if response.status_code == 200:
-                self.data = response 
-                self.score = [org["Score"] for org in self.data["Organizations"]]
+                self.data = response.json() 
+                self.score = [org["score"] for org in self.data["organizations"]]
                 return response.json()
             else:
                 return {"error": f"Failed to fetch data. Status code: {response.status_code}"}

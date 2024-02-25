@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from ChangeOrgApi import ChangeOrgApi
 from ProPublica import ProPublicaData
+import json
 app = Flask(__name__)
 
 # Create an instance of the API wrapper class
@@ -11,7 +12,7 @@ ChangeOrg = ChangeOrgApi(apiKey)
 def get_organization_score():
     orgName = request.args.get('name')
     ProPublica.getProPublicaOrgData(orgName)
-    orgScore = ProPublica.get_score()
+    orgScore = ProPublica.getScore()
     ProPublica.clear()
     ChangeOrg.clear()
     return orgScore
@@ -76,16 +77,44 @@ def get_creationDate_():
     return name
 
 @app.route('/data', methods=['GET'])
-def get_organization():
+def get_allData():
+
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
+    ProPublica.getProPublicaOrgData(orgName)
+    name=ChangeOrg.getName()
+    logo=ChangeOrg.getLogoUrl()
+    creationDate=ChangeOrg.getCreatedDate()
+    location=ChangeOrg.getLocation()
+    website=ChangeOrg.getWebsiteUrl()
 
-    name=ChangeOrg.getData()
+    ein=ChangeOrg.getEIN()
+    score=ProPublica.getScore()
     ChangeOrg.clear()
     ProPublica.clear()
-    return name
-
-
-
+    data = {
+    "ein": ein,
+    "name": name,
+    "logo": logo,
+    "website": website,
+    "creationDate": creationDate,
+    "location": location,
+    "score": score
+}
+    json_data = json.dumps(data)
+    return json_data
+@app.route('/changeOrg', methods=['GET'])
+def getChangeOrg():
+    orgName = request.args.get('name')
+    ChangeOrg.setupOrgName(orgName)
+    data = ChangeOrg.getChangeOrgData()
+    ChangeOrg.clear()
+    return data
+@app.route('/proPublica', methods=['GET'])
+def getProPublica():
+    orgName = request.args.get('name')
+    data = ProPublica.getProPublicaOrgData(orgName)
+    ProPublica.clear()
+    return data
 if __name__ == '__main__':
     app.run(debug=True)
