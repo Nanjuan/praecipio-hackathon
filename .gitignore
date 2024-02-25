@@ -1,6 +1,5 @@
-Backend/Flask/__pycache__/ChangeOrgApi.cpython-311.pyc
-Backend/Flask/__pycache__/ProPublica.cpython-311.pyc
-
+Backend/Flask/__pycache__
+Backend/Flask/venv
 
 # dependencies
 frontend/node_modules
