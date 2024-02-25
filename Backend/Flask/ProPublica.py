@@ -26,9 +26,7 @@ class ProPublicaData:
         
         try:
             apiUrl=self.propublicaApiUrl
-            #If the name is in quotations
-            if organizationName[0] == '"':
-                organizationName = self.formatOrgName(organizationName)
+            organizationName = self.formatOrgName(organizationName)
                 
             response = requests.get(apiUrl, params={"q": organizationName})
 
