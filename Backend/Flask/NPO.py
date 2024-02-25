@@ -60,8 +60,8 @@ def get_creationDate_():
 def get_organization():
     orgName = request.args.get('name')
     ChangeOrg.setupOrgName(orgName)
-    data = [ChangeOrg.getFormattedOrgName(),ChangeOrg.getCreatedDate(),\
-            ChangeOrg.getEIN(),ChangeOrg.getWebsiteUrl(),ChangeOrg.getLogoUrl()]
+    data = ""+ChangeOrg.getFormattedOrgName()+"\n"+ChangeOrg.getCreatedDate()+"\n"+\
+            ChangeOrg.getEIN()+"\n"+ChangeOrg.getWebsiteUrl()+"\n"+ChangeOrg.getLogoUrl()
     return data
 
 
