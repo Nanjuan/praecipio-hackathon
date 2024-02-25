@@ -4,14 +4,18 @@ import {
     Rating,
     Grid
 } from "@mui/material";
-import { getNpo } from "../../../../lib/npo";
+import { getNpo, getNpoRating } from "../../../../lib/npo";
 import ButtonMain from "@/app/components/Button";
 import LanguageIcon from "@mui/icons-material/Language";
 import PersonIcon from "@mui/icons-material/Person";
 import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
 
 export default async function NPO({params: {npoId}}) {
-    const npo = await getNpo(npoId);
+    const {nonprofit: npo} = await getNpo(npoId);
+    const rating = await getNpoRating(npoId).catch(console.log) || 4.5;
+    console.log(npoId)
+    console.log(npo);
+    console.log(rating);
     return (
       <main>
         <section className="py-10">
@@ -19,14 +23,9 @@ export default async function NPO({params: {npoId}}) {
             <div className="flex justify-between items-center space-x-4 mb-8">
               <div>
                 <Typography variant="h1" className="mb-2">
-                  {npo.npoName}
+                  {npo.name}
                 </Typography>
-                <Rating
-                  size="large"
-                  value={npo.rating}
-                  precision={0.5}
-                  readOnly
-                />
+                <Rating size="large" value={rating} precision={0.5} readOnly />
               </div>
               <ButtonMain>Donate</ButtonMain>
             </div>
@@ -39,8 +38,8 @@ export default async function NPO({params: {npoId}}) {
                         <LanguageIcon />
                         <Typography variant="h4">Website</Typography>
                       </div>
-                      <a href={npo.website} target="_blank" rel="noreferrer">
-                        <Typography>{npo.url}</Typography>
+                      <a href={npo.websiteUrl} target="_blank" rel="noreferrer">
+                        <Typography>{npo.websiteUrl}</Typography>
                       </a>
                     </li>
                     <li className="flex items-center space-x-4">
