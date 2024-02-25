@@ -1,3 +1,5 @@
+"use client"
+
 import {
     Container,
     Typography
@@ -6,14 +8,13 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
-
+import NpoList from "./NpoList";
 
 
 export default async function UserProfile({user}) {
 
     return (
         <main>
-            <nav className="h-20 w-full bg-black"></nav>
             <section className="py-10">
                 <Container>
                     <div  className="flex justify-between space-x-7">
@@ -26,7 +27,7 @@ export default async function UserProfile({user}) {
                                     Total Donated: $5000
                                 </Typography>
                             </div>
-                            <Accordion>
+                            <Accordion defaultExpanded>
                                     <AccordionSummary id="panel-header" aria-controls="panel-content">
                                         <div className="w-full flex justify-between">
                                             <Typography>Help the Turtles</Typography>
@@ -34,18 +35,29 @@ export default async function UserProfile({user}) {
                                         </div>
                                     </AccordionSummary>
                                 <AccordionDetails>
-                                    WE help tutrles!
+                                    We help turtles!
                                 </AccordionDetails>
                             </Accordion>
                             <Accordion>
                                     <AccordionSummary id="panel-header" aria-controls="panel-content">
                                         <div className="w-full flex justify-between">
-                                            <Typography>Help the Turtles</Typography>
+                                            <Typography>Boomers That Need Help</Typography>
                                             <Typography>$500</Typography>
                                         </div>
                                     </AccordionSummary>
                                 <AccordionDetails>
-                                    WE help tutrles!
+                                    We help boomers who think they know everything.
+                                </AccordionDetails>
+                            </Accordion>
+                            <Accordion>
+                                    <AccordionSummary id="panel-header" aria-controls="panel-content">
+                                        <div className="w-full flex justify-between">
+                                            <Typography>Spoiled Children of America</Typography>
+                                            <Typography>$600</Typography>
+                                        </div>
+                                    </AccordionSummary>
+                                <AccordionDetails>
+                                    We help children that can't help themselves
                                 </AccordionDetails>
                             </Accordion>
                         </div>
