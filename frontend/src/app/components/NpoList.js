@@ -18,7 +18,7 @@ export default function NpoList({ npos }) {
         <Grid item md={4} key={npo.privateId}>
           <Card
             elevation={10}
-            className="rounded-x1 shadow-[10px_10px_15px_0]-assentColor border border-[#cdd1e0] hover:scale-105 transition-transform duration-500 ease-in-out bg-secondaryColor "
+            className="rounded-x1 shadow-[10px_10px_15px_0]-assentColor border border-[#cdd1e0] hover:scale-105 transition-transform duration-500 ease-in-out bg-secondaryColor"
           >
             <Link href={`/npo/${npo.privateId}`}>
               

@@ -19,52 +19,68 @@ export default async function UserProfile({user}) {
                 <Container>
                     <div  className="flex justify-between space-x-7">
                         <div className="w-full">
-                            <div className="flex justify-between items-center">
+                            <div className="flex justify-between items-center rounded-x1 shadow-[10px_10px_15px_0]-assentColor border border-[#cdd1e0] hover:scale-105 transition-transform duration-500 ease-in-out bg-secondaryColor">
                                 <Typography variant="h5">
                                     Organizations
                                 </Typography>
                                 <Typography>
-                                    Total Donated: $5000
+                                    Total Donated: $1500
                                 </Typography>
                             </div>
-                            <Accordion defaultExpanded>
+                            <Accordion className="justify-between items-center rounded-x1 shadow-[10px_10px_15px_0]-assentColor border border-[#cdd1e0] hover:scale-105 transition-transform duration-500 ease-in-out bg-secondaryColor">
                                     <AccordionSummary id="panel-header" aria-controls="panel-content">
                                         <div className="w-full flex justify-between">
-                                            <Typography>Help the Turtles</Typography>
-                                            <Typography>$500</Typography>
+                                            <Typography>THe Trevor Project</Typography>
                                         </div>
                                     </AccordionSummary>
                                 <AccordionDetails>
-                                    We help turtles!
+                                        <Typography className="text-left text-textColor">Donated = $500</Typography>
+                                        <Typography>The Trevor Project is the leading suicide prevention and crisis intervention nonprofit organization for LGBTQ young people. We provide information & support to LGBTQ young people 24/7, all year round.</Typography>
                                 </AccordionDetails>
                             </Accordion>
-                            <Accordion>
+                            <Accordion className="justify-between items-center rounded-x1 shadow-[10px_10px_15px_0]-assentColor border border-[#cdd1e0] hover:scale-105 transition-transform duration-500 ease-in-out bg-secondaryColor">
                                     <AccordionSummary id="panel-header" aria-controls="panel-content">
                                         <div className="w-full flex justify-between">
-                                            <Typography>Boomers That Need Help</Typography>
-                                            <Typography>$500</Typography>
+                                            <Typography>St Jude</Typography>
                                         </div>
                                     </AccordionSummary>
                                 <AccordionDetails>
-                                    We help boomers who think they know everything.
+                                        <Typography className="text-left text-textColor">Donated = $600</Typography>
+                                        <Typography>St. Jude is leading the way the world understands, treats and defeats childhood cancer and other life-threatening diseases.</Typography>
                                 </AccordionDetails>
                             </Accordion>
-                            <Accordion>
+                            <Accordion className="justify-between items-center rounded-x1 shadow-[10px_10px_15px_0]-assentColor border border-[#cdd1e0] hover:scale-105 transition-transform duration-500 ease-in-out bg-secondaryColor">
                                     <AccordionSummary id="panel-header" aria-controls="panel-content">
                                         <div className="w-full flex justify-between">
-                                            <Typography>Spoiled Children of America</Typography>
-                                            <Typography>$600</Typography>
+                                            <Typography>Innocent Lives Foundation</Typography>
                                         </div>
                                     </AccordionSummary>
                                 <AccordionDetails>
-                                    We help children that can't help themselves
+                                        <Typography className="text-left text-textColor">Donated = $500</Typography>
+                                        <Typography>Identify anonymous child predators and help bring them to justice.</Typography>
                                 </AccordionDetails>
                             </Accordion>
                         </div>
                         <div className="text-center">
                             <AccountCircleIcon style={{fontSize:100}}/>
-                            <Typography variant="h5">{user.name}</Typography>
-                            <Typography variant="h5">{user.email}</Typography>
+                            <div className="flex justify-between items-center rounded-x1 border border-[#cdd1e0] bg-secondaryColor">
+                                <Typography className="bg-secondaryColor rounded-md text-center text-textColor">
+                                    {user.name}
+                                </Typography>
+                            </div>
+                            <div className="flex justify-between items-center rounded-x1 border border-[#cdd1e0] hover:scale-105 transition-transform duration-500 ease-in-out bg-secondaryColor">
+                                <Typography className="bg-secondaryColor rounded-md text-center text-textColor">
+                                    {user.email}
+                                </Typography>
+                            </div>
+                            <div className="flex justify-between items-center rounded-x1 border border-[#cdd1e0] bg-secondaryColor">
+                            <Typography className="bg-secondaryColor rounded-md text-center text-textColor">Tax Return</Typography>
+                            </div>
+                            <div className="flex justify-between items-center rounded-x1 border border-[#cdd1e0] hover:scale-105 transition-transform duration-500 ease-in-out bg-secondaryColor">
+                            <a href="/workspaces/javascript-node/praecipio-hackathon/frontend/tempsFiles/Tax-return.pdf" download className="bg-secondaryColor rounded-md text-center text-textColor">
+                                2024
+                            </a>
+                            </div>
                         </div>
                     </div>
                 </Container>
